@@ -12,6 +12,11 @@ public class EstadoSediento extends Estado {
     }
 
     @Override
+    public Estado recibirMedicina() {
+        return null;
+    }
+
+    @Override
     public String descripcion() {
         return "Sediento";
     }
