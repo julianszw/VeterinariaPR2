@@ -1,4 +1,4 @@
-package clases.estados;
+package estados;
 
 public class EstadoFeliz extends Estado {
     @Override

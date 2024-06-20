@@ -1,19 +1,19 @@
-package clases.estados;
+package estados;
 
-public class EstadoHambriento extends Estado {
+public class EstadoSediento extends Estado {
     @Override
     public Estado comer() {
-        return new EstadoFeliz();
-    }
-
-    @Override
-    public Estado tomar() {
         return null;
     }
 
     @Override
+    public Estado tomar() {
+        return new EstadoFeliz();
+    }
+
+    @Override
     public String descripcion() {
-        return "Hambriento";
+        return "Sediento";
     }
 
 }

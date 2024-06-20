@@ -1,6 +1,6 @@
-package clases.modelo;
+package modelo;
 
-import clases.estados.Estado;
+import estados.Estado;
 
 import java.util.ArrayList;
 

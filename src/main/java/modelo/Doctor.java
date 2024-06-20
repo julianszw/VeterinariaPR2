@@ -1,4 +1,4 @@
-package clases.modelo;
+package modelo;
 
 import criterios.Criterio;
 
