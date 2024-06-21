@@ -1,7 +1,8 @@
 package modelo;
 
-import collares.Collar;
 import estados.Estado;
+import tratamientos.Tratamiento;
+import tratamientos.TratamientoIndivual;
 
 import java.util.ArrayList;
 
@@ -13,6 +14,7 @@ public class Mascota {
     private Dueño dueño;
     private Collar collar;
     private ArrayList<Usuario> suscriptores;
+    private ArrayList<Tratamiento> tratamientosAplicados;
 
     public Mascota(String nombre, float peso, boolean estaVacunado, Estado estado, Dueño dueño) {
         this.nombre = nombre;
@@ -22,6 +24,7 @@ public class Mascota {
         this.dueño = dueño;
         suscriptores = new ArrayList<>();
         suscriptores.add(dueño);
+        tratamientosAplicados = new ArrayList<>();
     }
 
     public void comer() {
@@ -34,6 +37,14 @@ public class Mascota {
 
     public void tomar() {
         Estado nuevoEstado = this.estado.tomar();
+        if (nuevoEstado != null && nuevoEstado != this.estado) {
+            this.estado = nuevoEstado;
+            notificarCambioDeEstado();
+        }
+    }
+
+    public void recibirMedicina() {
+        Estado nuevoEstado = this.estado.recibirMedicina();
         if (nuevoEstado != null && nuevoEstado != this.estado) {
             this.estado = nuevoEstado;
             notificarCambioDeEstado();
@@ -70,6 +81,14 @@ public class Mascota {
         System.out.println("Notificando cambio de estado a " + this.estado.descripcion());
     }
 
+    protected void colocarCollar(Collar collar) { //protected porque solo el Doctor puede hacerlo
+        this.collar = collar;
+    }
+
+    public void aplicarTratamiento(Tratamiento tratamiento) {
+        this.tratamientosAplicados.add(tratamiento);
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -90,8 +109,6 @@ public class Mascota {
         return dueño;
     }
 
-    public void colocarCollar(Collar collar) {
-        this.collar = collar;
-    }
+
 
 }

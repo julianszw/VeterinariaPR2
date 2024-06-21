@@ -19,40 +19,20 @@ public class Usuario {
         return nombre;
     }
 
-    private void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public String getApellido() {
         return apellido;
-    }
-
-    private void setApellido(String apellido) {
-        this.apellido = apellido;
     }
 
     public String getDni() {
         return dni;
     }
 
-    private void setDni(String dni) {
-        this.dni = dni;
-    }
-
     public String getEmail() {
         return email;
     }
 
-    private void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getTelefono() {
         return telefono;
-    }
-
-    private void setTelefono(String telefono) {
-        this.telefono = telefono;
     }
 
 }

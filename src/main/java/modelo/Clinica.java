@@ -1,6 +1,5 @@
 package modelo;
 
-import collares.Collar;
 import tratamientos.Tratamiento;
 
 import java.util.ArrayList;

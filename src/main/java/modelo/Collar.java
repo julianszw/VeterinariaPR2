@@ -1,4 +1,4 @@
-package collares;
+package modelo;
 
 public class Collar {
 }
