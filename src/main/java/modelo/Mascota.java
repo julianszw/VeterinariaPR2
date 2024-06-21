@@ -1,5 +1,6 @@
 package modelo;
 
+import collares.Collar;
 import estados.Estado;
 
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ public class Mascota {
     private boolean estaVacunado;
     private Estado estado;
     private Dueño dueño;
+    private Collar collar;
     private ArrayList<Usuario> suscriptores;
 
     public Mascota(String nombre, float peso, boolean estaVacunado, Estado estado, Dueño dueño) {
@@ -42,8 +44,19 @@ public class Mascota {
         this.suscriptores.add(usuario);
     }
 
-    public void desuscribir(Usuario usuario) {
-        this.suscriptores.remove(usuario);
+    public void desuscribir(String dniUsuario) {
+        suscriptores.removeIf(usuario -> usuario.getDni().equals(dniUsuario));
+    }
+
+    private Usuario buscarUsuarioPorDNI(String dni) {
+        Usuario usuarioEncontrado = null;
+        int i = 0;
+        while (usuarioEncontrado == null && i < suscriptores.size()) {
+            if (suscriptores.get(i).getDni().equals(dni)) {
+                usuarioEncontrado = suscriptores.get(i);
+            }
+        }
+        return usuarioEncontrado;
     }
 
     private void notificarCambioDeEstado() {
@@ -93,9 +106,8 @@ public class Mascota {
         return dueño;
     }
 
-    public void setDueño(Dueño dueño) {
-        this.dueño = dueño;
+    public void colocarCollar(Collar collar) {
+        this.collar = collar;
     }
-
 
 }

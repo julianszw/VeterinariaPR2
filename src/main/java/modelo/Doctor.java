@@ -20,4 +20,13 @@ public class Doctor extends Usuario{
     public void darMedicina() {
 
     }
+
+    public void atenderMascota(Mascota mascota) {
+        this.criterio.atender(mascota, this);
+        this.colocarCollar(mascota);
+    }
+
+    private void colocarCollar(Mascota mascota) {
+        mascota.colocarCollar(Clinica.getCollarDelDia());
+    }
 }
