@@ -3,6 +3,7 @@ package modelo;
 import tratamientos.Tratamiento;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Clinica {
     private static ArrayList<Mascota> mascotasInternadas;
@@ -18,6 +19,19 @@ public class Clinica {
 
     public void internarMascota(Mascota mascota) {
         this.mascotasInternadas.add(mascota);
+        this.atenderMascota(mascota);
+    }
+
+    private void atenderMascota(Mascota mascota) {
+        Doctor doctor = this.asignarDoctor();
+        if (doctor != null) {
+            doctor.atenderMascota(mascota);
+            mascota.suscribir(doctor);
+        }
+    }
+
+    private Doctor asignarDoctor() { //manejar nulls
+        return doctores.get(new Random().nextInt(doctores.size()));
     }
 
     public void agregarDoctor(Doctor doctor) {
