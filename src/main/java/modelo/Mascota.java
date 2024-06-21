@@ -74,32 +74,16 @@ public class Mascota {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public float getPeso() {
         return peso;
     }
 
-    public void setPeso(float peso) {
-        this.peso = peso;
-    }
-
-    public boolean isEstaVacunado() {
+    public boolean estaVacunado() {
         return estaVacunado;
-    }
-
-    public void setEstaVacunado(boolean estaVacunado) {
-        this.estaVacunado = estaVacunado;
     }
 
     public Estado getEstado() {
         return estado;
-    }
-
-    public void setEstado(Estado estado) {
-        this.estado = estado;
     }
 
     public Dueño getDueño() {
