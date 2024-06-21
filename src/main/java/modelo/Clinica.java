@@ -6,12 +6,14 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Clinica {
+    private String nombre;
     private static ArrayList<Mascota> mascotasInternadas;
     private static ArrayList<Doctor> doctores;
     private static ArrayList<Tratamiento> tratamientos;
     private static Collar collar;
 
-    public Clinica() {
+    public Clinica(String nombre) {
+        this.nombre = nombre;
         mascotasInternadas = new ArrayList<>();
         doctores = new ArrayList<>();
         tratamientos = new ArrayList<>();
@@ -48,6 +50,19 @@ public class Clinica {
 
     public void cambiarCollaDelDia(Collar collar){
         this.collar = collar;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+
+    //Métodos para el test
+    public static ArrayList<Doctor> getDoctores(){
+        return doctores;
+    }
+    public static ArrayList<Mascota> getMascotasInternadas(){
+        return mascotasInternadas;
     }
 
 }
